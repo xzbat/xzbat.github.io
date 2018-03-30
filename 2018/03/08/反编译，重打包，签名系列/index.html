@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>反编译，重打包，签名系列 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="反编译，重打包，签名系写作目的：最近在折腾安卓，以后的方向也初步定为安卓开发了，学习过程中遇到了不少问题，百度，google了不少，但有些解决方法由于版本过老，现在已经失效，于是想将自己折腾成功的一些东西总结起来，供给有需要的人参考，避免趟我趟过的坑，如有错误，还请斧正：） 由于自己也是小白，写的东西当然也比较小白向，所以我们从环境搭建说起。jdk配置 弄安卓的话自然离不开java，所以jdk的配">
+<meta name="keywords" content="安卓开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="反编译，重打包，签名系列">
+<meta property="og:url" content="http://yoursite.com/2018/03/08/反编译，重打包，签名系列/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="反编译，重打包，签名系写作目的：最近在折腾安卓，以后的方向也初步定为安卓开发了，学习过程中遇到了不少问题，百度，google了不少，但有些解决方法由于版本过老，现在已经失效，于是想将自己折腾成功的一些东西总结起来，供给有需要的人参考，避免趟我趟过的坑，如有错误，还请斧正：） 由于自己也是小白，写的东西当然也比较小白向，所以我们从环境搭建说起。jdk配置 弄安卓的话自然离不开java，所以jdk的配">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005zK3NKgy1fp5qubjttej30fe08egm0.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005zK3NKgy1fp5rbbwigrj30fe0ay0t9.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005zK3NKgy1fp5rbrccdnj30fe0hh3z3.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005zK3NKgy1fp5rjcvapzj30fe0eyt9g.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005zK3NKgy1fp5rjq90epj30fe0eu0td.jpg">
+<meta property="og:updated_time" content="2018-03-19T13:25:39.575Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="反编译，重打包，签名系列">
+<meta name="twitter:description" content="反编译，重打包，签名系写作目的：最近在折腾安卓，以后的方向也初步定为安卓开发了，学习过程中遇到了不少问题，百度，google了不少，但有些解决方法由于版本过老，现在已经失效，于是想将自己折腾成功的一些东西总结起来，供给有需要的人参考，避免趟我趟过的坑，如有错误，还请斧正：） 由于自己也是小白，写的东西当然也比较小白向，所以我们从环境搭建说起。jdk配置 弄安卓的话自然离不开java，所以jdk的配">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005zK3NKgy1fp5qubjttej30fe08egm0.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-反编译，重打包，签名系列" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/08/反编译，重打包，签名系列/" class="article-date">
+  <time datetime="2018-03-08T13:46:08.000Z" itemprop="datePublished">2018-03-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/安卓开发/">安卓开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      反编译，重打包，签名系列
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="反编译，重打包，签名系"><a href="#反编译，重打包，签名系" class="headerlink" title="反编译，重打包，签名系"></a>反编译，重打包，签名系</h1><h2 id="写作目的："><a href="#写作目的：" class="headerlink" title="写作目的："></a>写作目的：</h2><p>最近在折腾安卓，以后的方向也初步定为安卓开发了，学习过程中遇到了不少问题，百度，google了不少，<br>但有些解决方法由于版本过老，现在已经失效，于是想将自己折腾成功的一些东西总结起来，供给有需要的人参考，<br>避免趟我趟过的坑，如有错误，还请斧正：）</p>
+<h3 id="由于自己也是小白，写的东西当然也比较小白向，所以我们从环境搭建说起。"><a href="#由于自己也是小白，写的东西当然也比较小白向，所以我们从环境搭建说起。" class="headerlink" title="由于自己也是小白，写的东西当然也比较小白向，所以我们从环境搭建说起。"></a>由于自己也是小白，写的东西当然也比较小白向，所以我们从环境搭建说起。</h3><h2 id="jdk配置"><a href="#jdk配置" class="headerlink" title="jdk配置"></a>jdk配置</h2><ol>
+<li>弄安卓的话自然离不开java，所以jdk的配置是必须的。<ul>
+<li>首先前往jdk官网下载jdk的一个安装包  </li>
+</ul>
+</li>
+</ol>
+<p><img src="https://ws1.sinaimg.cn/large/005zK3NKgy1fp5qubjttej30fe08egm0.jpg" alt=""></p>
+<ul>
+<li><p>接下来最好全部选择默认安装配置，尤其是安装路径，否则可能会影响接下来的变量设置，我试过两次放在D盘，都会报错。</p>
+</li>
+<li><p>然后我们设置一下系统变量</p>
+<p>右击我的电脑，然后打开高级系统设置，打开环境变量，接下来的操作都在系统变量中进行。<br><img src="https://ws1.sinaimg.cn/large/005zK3NKgy1fp5rbbwigrj30fe0ay0t9.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/005zK3NKgy1fp5rbrccdnj30fe0hh3z3.jpg" alt=""></p>
+</li>
+<li><p>在系统变量中（注意不是用户变量）先新建两个变量，变量名和变量值如下：</p>
+<pre><code>JAVA_HOME
+C:\Program Files\Java\jdk-9.0.4（其含义就是你jdk安装的路径，如果是默认安装，且jdk版本一致，直接复制粘贴我的就好否则改下路径和版本也OK）
+
+CLASSPATH
+.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib
+</code></pre></li>
+<li>然后还是在系统变量中操作，选中变量名为Path的，选择编辑，然后添加下面两个值<pre><code>%JAVA_HOME%\lib\dt.jar
+%JAVA_HOME%\lib\tools.jar
+</code></pre>最后确定一下就好了。<br><img src="https://ws1.sinaimg.cn/large/005zK3NKgy1fp5rjcvapzj30fe0eyt9g.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/005zK3NKgy1fp5rjq90epj30fe0eu0td.jpg" alt=""></li>
+</ul>
+<p>配置好之后我们需要检验一下，方法为：</p>
+<p>同时按win+r，如后输入cmd即可，在cmd中，输入java –version，如果返回了java的版本号，即代表配成功.</p>
+<ol>
+<li><p>环境搭建好之后，我们还需要一个反编译以及重打包的工具，即apktool，网上很多人留下的集成好批处理文件的工具包由于apktool的版本过老，直接使用是会报错的，我们需要自己稍微做个新版本的工具包</p>
+<ul>
+<li><p>同样前往官网下载，但和我们平时下载好安装包之后无脑点下一步不同，我们除了下载apktool-2这个jar文件以外，还需要下载与之匹配的一个批处理文件，即第一个的apktool.bat</p>
+</li>
+<li><p>然而点开第一个链接后会得到一串代码，这不是网页GG了，这就是批处理文件的内容，用编辑器粘贴这些代码，保存后命名为apktool.bat这样一个批处理文件即可。</p>
+</li>
+<li>然后我们将第二个下载链接下载下来的jar文件和这个批处理文件放一块空文件夹中即可。<h2 id="准备就绪，让我们开始反编译吧，let’s-go"><a href="#准备就绪，让我们开始反编译吧，let’s-go" class="headerlink" title="准备就绪，让我们开始反编译吧，let’s go"></a>准备就绪，让我们开始反编译吧，let’s go</h2></li>
+</ul>
+</li>
+<li><p>首先将你想要反编译的apk放在apktool的文件夹下</p>
+<p>然后打开cmd，用cd <file>命令到apktool文件夹所在的目录</file></p>
+<pre><code>pktool.bat d demo.apk        //demo.apk需要改成你的apk的名字
+</code></pre><p>等到cmd跑完，如果apktool文件夹里多了一个demo文件夹，且目录不为空，即反编译成功.</p>
+<p>ok，当你按需求改完代码或者图片之类的之后，需要将demo重打包为一个apk文件，使用代码：</p>
+<pre><code>apktool b demo -o new_demo.apk
+</code></pre><p>同样，当cmd跑完，目录中出现一个new_demo.apk，即代表succes</p>
+<p>由于这个新apk已经被你改过了，原作者的签名也就没了，所以无法安装到手机上，我们需要自己给个签名</p>
+</li>
+</ol>
+<h2 id="注意：接下来的操作需要以管理员身份运行cmd"><a href="#注意：接下来的操作需要以管理员身份运行cmd" class="headerlink" title="注意：接下来的操作需要以管理员身份运行cmd"></a>注意：接下来的操作需要以管理员身份运行cmd</h2><ul>
+<li><p>首先找到jdk中bin目录所在位置，默认位置为C:\Program Files\Java\jdk-9.0.4\bin</p>
+<p>我们将需要打签名的new_demo.apk放到该目录下，cmd中cd到该目录，</p>
+<pre><code>cd C:\Program Files\Java\jdk-9.0.4\bin
+</code></pre><p>然后开始打签名吧，代码如下：</p>
+<pre><code>· keytool -genkey -alias demo.keystore -keyalg RSA -validity 40000 -keystore demo.keystore
+</code></pre></li>
+</ul>
+<h2 id="succes-！"><a href="#succes-！" class="headerlink" title="succes  ！"></a>succes  ！</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/08/反编译，重打包，签名系列/" data-id="cjfe1f5co0001tsunvwm8y9q0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓开发/">安卓开发</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/09/搭建博客教程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          搭建博客教程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/08/回首17年/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">回首17</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端相关/">前端相关</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/安卓开发/">安卓开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小白向电脑教程/">小白向电脑教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/纪念/">纪念</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/资源分享/">资源分享</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端-教程/">前端 教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安卓开发/">安卓开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小白向电脑教程/">小白向电脑教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/纪念/">纪念</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/前端-教程/" style="font-size: 10px;">前端 教程</a> <a href="/tags/安卓开发/" style="font-size: 10px;">安卓开发</a> <a href="/tags/小白向电脑教程/" style="font-size: 10px;">小白向电脑教程</a> <a href="/tags/纪念/" style="font-size: 20px;">纪念</a> <a href="/tags/资源分享/" style="font-size: 10px;">资源分享</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/19/电脑操作技巧科普/">电脑操作技巧科普</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/资源分享贴一/">资源分享贴一</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/搭建博客教程/">搭建博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/反编译，重打包，签名系列/">反编译，重打包，签名系列</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/回首17年/">回首17</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
