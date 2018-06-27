@@ -262,6 +262,179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/26/从用户角度来看DNS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xzbat">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xzbat's world">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/26/从用户角度来看DNS/" itemprop="url">从用户角度来看DNS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T22:54:14+08:00">
+                2018-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h1><p>DNS （Domain Name System(域名系统) 的缩写）是万维网上作为域名和IP地址相互映射的一个分布式数据库，能够使用户更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。通过域名，最终得到该域名对应的IP地址的过程叫做域名解析（或主机名解析）。</p>
+<p><strong>说简单点，就相当于一本能通过域名查到ip地址的电话本。</strong></p>
+<h2 id="能干什么？"><a href="#能干什么？" class="headerlink" title="能干什么？"></a>能干什么？</h2><p>如果你有计算机网络基础，你应该知道，我们访问一个网站也好，获取该网站的视频，图片等资源也好，本质上都是向该网站的服务器发起请求，而这一切都始于你输入网址开始的。然而我们的服务器，客户端在互联网中的地址都是通过IP地址来确定的，这就需要通过某种媒介，把域名转化为IP地址，DNS就是根据域名查出IP地址，它的本质也是服务器。</p>
+<h2 id="用户能对它做什么？"><a href="#用户能对它做什么？" class="headerlink" title="用户能对它做什么？"></a>用户能对它做什么？</h2><ul>
+<li><p>默认情况下，我们使用的动态IP地址是基于DHCP协议的（建立在UDP协议之上的一种应用层协议），它会为我们分配一个DNS服务器地址，一般来说，这样是没问题的，但DNS劫持、污染，以及你科学上网的IP被封了，也是基于这种一般情况的，所以，懂得如何自己设置DNS显得至关重要。</p>
+<p>Win系统下的设置如下图：</p>
+<p><img src="C:\Users\xzbat\AppData\Local\Temp\1530087004869.png" alt="1530087004869"></p>
+</li>
+</ul>
+<p><img src="C:\Users\xzbat\AppData\Local\Temp\1530087058620.png" alt="1530087058620"></p>
+<p>由于科学上网的需求，本人主推谷歌的DNS服务器：8.8.8.8，以及较快的韩国服务器：192.168.123.1</p>
+<p>至于114.114.114.114的DNS，给大家看个他的<a href="http://www.easyaq.org/info/infoLink?id=2433&amp;memberId=&amp;token=6244159ea8844c20cdef56b370969dd28d2893e08fa005cbdc951a2d1c522208&amp;type=1&amp;version=2.3&amp;from=timeline&amp;isappinstalled=0" target="_blank" rel="noopener">恶行</a>,各家DNS服务商的好坏，大家自己判断。</p>
+<ul>
+<li>顺便一提，查看自己DNS服务器地址的方法是：<code>ipconfig /all</code></li>
+</ul>
+<h2 id="和本机host文件有什么关系？"><a href="#和本机host文件有什么关系？" class="headerlink" title="和本机host文件有什么关系？"></a>和本机host文件有什么关系？</h2><p><strong>一般情况下，输入网址后，是由远程的DNS服务器进行网址—&gt;IP地址的解析，但是根据Windows系统规定，在进行DNS请求以前，Windows系统会先检查自己的Hosts文件中是否有这个网络域名映射关系。如果有，则调用这个IP地址映射，如果没有，再向已知的DNS服务器提出域名解析。也就是说Hosts的请求级别比DNS高。</strong></p>
+<h3 id="利用此原理，可以做些什么呢？"><a href="#利用此原理，可以做些什么呢？" class="headerlink" title="利用此原理，可以做些什么呢？"></a>利用此原理，可以做些什么呢？</h3><ol>
+<li><p>加快域名解析：</p>
+<p>对于要经常访问的网站，我们可以通过在Hosts中配置域名和IP的映射关系，提高域名解析速度。由于有了映射关系，当我们输入域名计算机就能很快解析出IP，而不用请求网络上的DNS服务器。</p>
+</li>
+<li><p>屏蔽网站：</p>
+<p>具体做法：利用127.0.0.1 或0.0.0.0</p>
+<p>127.0.0.1 # 要屏蔽的网站 A</p>
+<p>0.0.0.0 # 要屏蔽的网站 B</p>
+</li>
+<li><p>方便局域网用户</p>
+<p>在很多单位的局域网中，会有服务器提供给用户使用。但由于局域网中一般很少架设DNS服务器，访问这些服务器时，要输入难记的IP地址。这对不少人来说相当麻烦。现在可以分别给这些服务器取个容易记住的名字，然后在Hosts中建立IP映射，这样以后访问的时候，只要输入这个服务器的名字就行了。</p>
+</li>
+<li><p>顺利连接系统</p>
+<p>对于服务器和一些数据库服务器，在访问时如果直接输入IP地址那是不能访问的，只能输入服务器名才能访问。那么我们配置好Hosts文件，这样输入服务器名就能顺利连接了。</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/加快github访问速度/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1746,151 +1919,13 @@ CLASSPATH
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/08/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xzbat">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xzbat's world">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/08/test/" itemprop="url">test</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-08T19:05:38+08:00">
-                2018-03-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Test/" itemprop="url" rel="index">
-                    <span itemprop="name">Test</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>hello world</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1938,7 +1973,7 @@ CLASSPATH
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1949,7 +1984,7 @@ CLASSPATH
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1960,7 +1995,7 @@ CLASSPATH
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
